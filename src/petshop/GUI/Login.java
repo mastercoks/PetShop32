@@ -48,6 +48,7 @@ public class Login extends javax.swing.JFrame {
         txtSenha = new javax.swing.JPasswordField();
         lbSenhaIncorreta = new javax.swing.JLabel();
         lbLoginIncorreto = new javax.swing.JLabel();
+        nada = new javax.swing.JLabel();
         pMenuPrincipal = new javax.swing.JPanel();
         bClientes = new javax.swing.JButton();
         bServicos = new javax.swing.JButton();
@@ -60,27 +61,32 @@ public class Login extends javax.swing.JFrame {
         bBClientes3 = new javax.swing.JButton();
         bVoltar3 = new javax.swing.JButton();
         txtAdmin1 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
+        bmBarraMenu = new javax.swing.JMenuBar();
+        mCadastro = new javax.swing.JMenu();
+        miAnimal = new javax.swing.JMenuItem();
+        miCliente = new javax.swing.JMenuItem();
+        mClientes = new javax.swing.JMenu();
+        miBuscarCliente = new javax.swing.JMenuItem();
+        mAnimais = new javax.swing.JMenu();
+        miBuscarAnimal = new javax.swing.JMenuItem();
+        mAtendimento = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        miNovoAtendimento = new javax.swing.JMenuItem();
+        miContultar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 400));
 
         pLogin.setPreferredSize(new java.awt.Dimension(700, 350));
 
         lbTitulo.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         lbTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitulo.setText("PET SHOP");
+
+        txtLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLoginActionPerformed(evt);
+            }
+        });
 
         lbLogin.setText("Login:");
 
@@ -121,49 +127,56 @@ public class Login extends javax.swing.JFrame {
         pLoginLayout.setHorizontalGroup(
             pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pLoginLayout.createSequentialGroup()
-                .addContainerGap(233, Short.MAX_VALUE)
+                .addContainerGap(236, Short.MAX_VALUE)
                 .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbLogin)
-                    .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pLoginLayout.createSequentialGroup()
-                            .addComponent(bSair)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(bEntrar))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pLoginLayout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(lbTitulo))
+                    .addComponent(nada, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pLoginLayout.createSequentialGroup()
+                        .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(pLoginLayout.createSequentialGroup()
                                 .addComponent(lbSenha)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbLoginIncorreto)
-                    .addComponent(lbSenhaIncorreta))
-                .addContainerGap(121, Short.MAX_VALUE))
+                            .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pLoginLayout.createSequentialGroup()
+                                    .addComponent(bSair)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(bEntrar))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pLoginLayout.createSequentialGroup()
+                                        .addGap(8, 8, 8)
+                                        .addComponent(lbTitulo))
+                                    .addGroup(pLoginLayout.createSequentialGroup()
+                                        .addComponent(lbLogin)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbLoginIncorreto)
+                            .addComponent(lbSenhaIncorreta))))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
         pLoginLayout.setVerticalGroup(
             pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pLoginLayout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
+                .addContainerGap(56, Short.MAX_VALUE)
                 .addComponent(lbTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(nada, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbLogin)
                     .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbLoginIncorreto))
-                .addGap(18, 18, 18)
+                    .addComponent(lbLoginIncorreto)
+                    .addComponent(lbLogin))
+                .addGap(20, 20, 20)
                 .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbSenha)
+                    .addComponent(lbSenhaIncorreta, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbSenhaIncorreta, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                    .addComponent(lbSenha))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bEntrar)
                     .addComponent(bSair))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         pMenuPrincipal.setVisible(false);
@@ -198,6 +211,11 @@ public class Login extends javax.swing.JFrame {
 
         bLogout.setIcon(new javax.swing.ImageIcon("/home/matheus/Downloads/mimiGlyphs/png/52.png")); // NOI18N
         bLogout.setText("<html><body>LOGOUT</body></html>");
+        bLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bLogoutActionPerformed(evt);
+            }
+        });
 
         txtAdmin.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         txtAdmin.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -212,17 +230,17 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(txtAdmin)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(pMenuPrincipalLayout.createSequentialGroup()
-                .addContainerGap(102, Short.MAX_VALUE)
+                .addContainerGap(94, Short.MAX_VALUE)
                 .addGroup(pMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(bFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                 .addGroup(pMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bServicos, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bAnimais, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMenuPrincipalLayout.createSequentialGroup()
-                .addContainerGap(578, Short.MAX_VALUE)
+                .addContainerGap(552, Short.MAX_VALUE)
                 .addComponent(bLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -245,6 +263,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         pClientes.setVisible(false);
+        pClientes.setPreferredSize(new java.awt.Dimension(700, 350));
 
         bNClientes3.setIcon(new javax.swing.ImageIcon("/home/matheus/Downloads/mimiGlyphs/png/13.png")); // NOI18N
         bNClientes3.setText("<html><body>NOVO CLIENTE</body></html>");
@@ -281,101 +300,101 @@ public class Login extends javax.swing.JFrame {
         pClientesLayout.setHorizontalGroup(
             pClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pClientesLayout.createSequentialGroup()
-                .addContainerGap(582, Short.MAX_VALUE)
-                .addComponent(bVoltar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pClientesLayout.createSequentialGroup()
-                .addContainerGap(125, Short.MAX_VALUE)
+                .addContainerGap(108, Short.MAX_VALUE)
                 .addComponent(bNClientes3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addGap(80, 80, 80)
                 .addComponent(bBClientes3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pClientesLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtAdmin1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pClientesLayout.createSequentialGroup()
+                .addContainerGap(556, Short.MAX_VALUE)
+                .addComponent(bVoltar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pClientesLayout.setVerticalGroup(
             pClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pClientesLayout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
+                .addContainerGap(46, Short.MAX_VALUE)
                 .addComponent(txtAdmin1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(pClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bNClientes3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bBClientes3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addComponent(bVoltar3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("Cadastro");
-        jMenu1.setEnabled(false);
+        mCadastro.setText("Cadastro");
+        mCadastro.setEnabled(false);
 
-        jMenuItem1.setText("Animal");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        miAnimal.setText("Animal");
+        miAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                miAnimalActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        mCadastro.add(miAnimal);
 
-        jMenuItem2.setText("Cliente");
-        jMenu1.add(jMenuItem2);
+        miCliente.setText("Cliente");
+        mCadastro.add(miCliente);
 
-        jMenuBar1.add(jMenu1);
+        bmBarraMenu.add(mCadastro);
 
-        jMenu2.setText("Clientes");
-        jMenu2.setEnabled(false);
+        mClientes.setText("Clientes");
+        mClientes.setEnabled(false);
 
-        jMenuItem3.setText("Buscar");
-        jMenu2.add(jMenuItem3);
+        miBuscarCliente.setText("Buscar");
+        mClientes.add(miBuscarCliente);
 
-        jMenuBar1.add(jMenu2);
+        bmBarraMenu.add(mClientes);
 
-        jMenu4.setText("Animais");
-        jMenu4.setEnabled(false);
+        mAnimais.setText("Animais");
+        mAnimais.setEnabled(false);
 
-        jMenuItem4.setText("Buscar");
-        jMenu4.add(jMenuItem4);
+        miBuscarAnimal.setText("Buscar");
+        mAnimais.add(miBuscarAnimal);
 
-        jMenuBar1.add(jMenu4);
+        bmBarraMenu.add(mAnimais);
 
-        jMenu6.setText("Atendimento");
-        jMenu6.setEnabled(false);
+        mAtendimento.setText("Atendimento");
+        mAtendimento.setEnabled(false);
 
         jMenuItem5.setText("Orçamento");
-        jMenu6.add(jMenuItem5);
+        mAtendimento.add(jMenuItem5);
 
-        jMenuItem6.setText("Novo Atendimento");
-        jMenu6.add(jMenuItem6);
+        miNovoAtendimento.setText("Novo Atendimento");
+        mAtendimento.add(miNovoAtendimento);
 
-        jMenuItem7.setText("Consultar");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+        miContultar.setText("Consultar");
+        miContultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
+                miContultarActionPerformed(evt);
             }
         });
-        jMenu6.add(jMenuItem7);
+        mAtendimento.add(miContultar);
 
-        jMenuBar1.add(jMenu6);
+        bmBarraMenu.add(mAtendimento);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(bmBarraMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
+            .addComponent(pLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pMenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(pClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -383,89 +402,26 @@ public class Login extends javax.swing.JFrame {
             .addComponent(pLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(14, 14, 14)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pMenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(15, 15, 15)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(14, 14, 14)
-                    .addComponent(pClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(13, Short.MAX_VALUE)
+                    .addComponent(pClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
                     .addContainerGap(15, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void miAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAnimalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_miAnimalActionPerformed
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+    private void miContultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miContultarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
-
-    private void bEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEntrarActionPerformed
-        Statement query = ConexaoPostgreSQL.openConnectionPostgreSQL();
-        int cont = 0;
-
-        try {
-
-            ResultSet rs = query.executeQuery("SELECT id, login, senha, nivel FROM \"Admin\""
-                    + "WHERE login = '" +  txtLogin.getText() + 
-                    "' and senha = '" +  txtSenha.getText() +   "' ");
-            
-            while(rs.next()){
-                pLogin.setVisible(false);
-                pMenuPrincipal.setVisible(true);
-                
-            }
-            
-            
-            
-            
-//            ResultSet rs = query.executeQuery("SELECT id, login, senha, nivel FROM \"Usuario\""
-//                    + "WHERE login = '" + txtLogin.getText() + "'");
-//
-//            if ("".equals(rs.getNString(WIDTH))) {
-//                lbLoginIncorreto.setVisible(true);
-//            } else {
-//                
-//                ResultSet rs1 = query.executeQuery("SELECT id, login, senha, nivel FROM \"Usuario\""
-//                    + "WHERE senha = '" + txtSenha.getText() + "'");
-//                if(rs1.getFetchSize() == 0){
-//                    lbSenhaIncorreta.setVisible(true);
-//                }
-//                while (rs.next()) {
-//                    cont++;
-//                    System.out.println(rs.getString("login") + " " + rs.getString("senha"));
-//                    lbLoginIncorreto.setVisible(false);
-//                    lbSenhaIncorreta.setVisible(false);
-//
-//                }
-//                if (cont == 0){
-//                    lbLoginIncorreto.setVisible(true);
-//                    lbSenhaIncorreta.setVisible(true);
-//                }else{
-//                    System.out.println(rs.getString("login") + " " + rs.getString("senha"));
-//                    lbLoginIncorreto.setVisible(false);
-//                    lbSenhaIncorreta.setVisible(false);
-//                }
-//            }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            lbLoginIncorreto.setVisible(true);
-        }
-
-    }//GEN-LAST:event_bEntrarActionPerformed
-
-    private void bSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSairActionPerformed
-        this.fechar();
-    }//GEN-LAST:event_bSairActionPerformed
-
-    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSenhaActionPerformed
+    }//GEN-LAST:event_miContultarActionPerformed
 
     private void bClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bClientesActionPerformed
         pMenuPrincipal.setVisible(false);
@@ -492,6 +448,70 @@ public class Login extends javax.swing.JFrame {
         pClientes.setVisible(false);
         pMenuPrincipal.setVisible(true);
     }//GEN-LAST:event_bVoltar3ActionPerformed
+
+    private void bLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLogoutActionPerformed
+        pMenuPrincipal.setVisible(false);
+        pLogin.setVisible(true);
+        txtLogin.setText("");
+        txtSenha.setText("");
+        mAnimais.setEnabled(false);
+        mClientes.setEnabled(false);
+        mAtendimento.setEnabled(false);
+        mCadastro.setEnabled(false);
+    }//GEN-LAST:event_bLogoutActionPerformed
+
+    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSenhaActionPerformed
+
+    private void bSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSairActionPerformed
+        this.fechar();
+    }//GEN-LAST:event_bSairActionPerformed
+
+    private void bEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEntrarActionPerformed
+        Statement query = ConexaoPostgreSQL.openConnectionPostgreSQL();
+        int cont = 0;
+
+        try {
+
+            ResultSet rs = query.executeQuery("SELECT id, login, senha, nivel FROM \"Admin\""
+                + "WHERE login = '" + txtLogin.getText() + "' ");
+
+            while (rs.next()) {
+                cont = cont + 1;
+                rs = query.executeQuery("SELECT id, login, senha, nivel FROM \"Admin\""
+                    + "WHERE senha = '" + txtSenha.getText() + "' ");
+
+                while (rs.next()) {
+                    if (rs.getString("login").equals(txtLogin.getText())) {
+                        lbLoginIncorreto.setVisible(false);
+                        cont = cont + 1;
+                        pLogin.setVisible(false);
+                        pMenuPrincipal.setVisible(true);
+                        mAnimais.setEnabled(true);
+                        mClientes.setEnabled(true);
+                        mAtendimento.setEnabled(true);
+                        mCadastro.setEnabled(true);
+                        lbSenhaIncorreta.setVisible(false);
+                    }
+                }
+            }
+
+            if (cont == 0) {
+                lbLoginIncorreto.setVisible(true);
+            } else if (cont == 1) {
+                lbSenhaIncorreta.setVisible(true);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            lbLoginIncorreto.setVisible(true);
+        }
+    }//GEN-LAST:event_bEntrarActionPerformed
+
+    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -540,23 +560,24 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton bSair;
     private javax.swing.JButton bServicos;
     private javax.swing.JButton bVoltar3;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuBar bmBarraMenu;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JLabel lbLogin;
     private javax.swing.JLabel lbLoginIncorreto;
     private javax.swing.JLabel lbSenha;
     private javax.swing.JLabel lbSenhaIncorreta;
     private javax.swing.JLabel lbTitulo;
+    private javax.swing.JMenu mAnimais;
+    private javax.swing.JMenu mAtendimento;
+    private javax.swing.JMenu mCadastro;
+    private javax.swing.JMenu mClientes;
+    private javax.swing.JMenuItem miAnimal;
+    private javax.swing.JMenuItem miBuscarAnimal;
+    private javax.swing.JMenuItem miBuscarCliente;
+    private javax.swing.JMenuItem miCliente;
+    private javax.swing.JMenuItem miContultar;
+    private javax.swing.JMenuItem miNovoAtendimento;
+    private javax.swing.JLabel nada;
     private javax.swing.JPanel pClientes;
     private javax.swing.JPanel pLogin;
     private javax.swing.JPanel pMenuPrincipal;
@@ -567,7 +588,7 @@ public class Login extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void fechar() {
-        if (javax.swing.JOptionPane.showConfirmDialog(null, "Deseja sair do programa?", "ATENÇÂO ", javax.swing.JOptionPane.YES_NO_OPTION) == 0) {
+        if (javax.swing.JOptionPane.showConfirmDialog(null, "Deseja sair do programa?", "ATENÇÃO ", javax.swing.JOptionPane.YES_NO_OPTION) == 0) {
             this.dispose();
         }
     }

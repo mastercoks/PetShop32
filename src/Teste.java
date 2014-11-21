@@ -23,7 +23,7 @@ public class Teste {
         Statement query = ConexaoPostgreSQL.openConnectionPostgreSQL();
         
         try {
-            ResultSet rs =  query.executeQuery("SELECT id, login, senha, nivel FROM \"Usuario\";");
+            ResultSet rs =  query.executeQuery("SELECT id, login, senha, nivel FROM \"Admin\";");
             
             while (rs.next()){
                 System.out.println("Login: " + rs.getString("login")+" Senha: " + rs.getString("senha")+" Nivel de acesso: " + rs.getString("nivel"));
