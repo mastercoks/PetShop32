@@ -1,5 +1,5 @@
 
-package petshop;
+package br.edu.uesb.petshop;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;

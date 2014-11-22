@@ -1,4 +1,4 @@
-package petshop;
+package br.edu.uesb.petshop;
 
 /*
  * To change this template, choose Tools | Templates

@@ -5,7 +5,7 @@
  */
 package petshop.control;
 
-import petshop.Cliente;
+import br.edu.uesb.petshop.Cliente;
 
 /**
  *

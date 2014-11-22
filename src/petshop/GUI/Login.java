@@ -14,7 +14,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-import petshop.Funcionario;
+import br.edu.uesb.petshop.Funcionario;
 
 /**
  *
@@ -478,14 +478,14 @@ public class Login extends javax.swing.JFrame {
                 + "WHERE login = '" + txtLogin.getText() + "' ");
 
             while (rs.next()) {
-                cont = cont + 1;
+                cont ++;
                 rs = query.executeQuery("SELECT id, login, senha, nivel FROM \"Admin\""
                     + "WHERE senha = '" + txtSenha.getText() + "' ");
 
                 while (rs.next()) {
                     if (rs.getString("login").equals(txtLogin.getText())) {
                         lbLoginIncorreto.setVisible(false);
-                        cont = cont + 1;
+                        cont ++;
                         pLogin.setVisible(false);
                         pMenuPrincipal.setVisible(true);
                         mAnimais.setEnabled(true);

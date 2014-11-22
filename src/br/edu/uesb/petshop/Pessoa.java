@@ -1,4 +1,4 @@
-package petshop;
+package br.edu.uesb.petshop;
 
 
 import java.util.Date;
