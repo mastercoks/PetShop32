@@ -158,9 +158,9 @@ public class Login extends javax.swing.JFrame {
         pLoginLayout.setVerticalGroup(
             pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pLoginLayout.createSequentialGroup()
-                .addContainerGap(56, Short.MAX_VALUE)
+                .addContainerGap(45, Short.MAX_VALUE)
                 .addComponent(lbTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(nada, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -172,11 +172,11 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(lbSenhaIncorreta, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbSenha))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bEntrar)
                     .addComponent(bSair))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         pMenuPrincipal.setVisible(false);
@@ -190,7 +190,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        bServicos.setIcon(new javax.swing.ImageIcon("/home/matheus/Downloads/mimiGlyphs/png/10.png")); // NOI18N
         bServicos.setText("<html><body>SERVIÇOS</body></html>");
         bServicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,6 +207,12 @@ public class Login extends javax.swing.JFrame {
 
         bFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/14.png"))); // NOI18N
         bFuncionario.setText("<html><body>FUNCIONÁRIOS</body></html>");
+        bFuncionario.setEnabled(false);
+        bFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bFuncionarioActionPerformed(evt);
+            }
+        });
 
         bLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/52.png"))); // NOI18N
         bLogout.setText("<html><body>LOGOUT</body></html>");
@@ -274,7 +279,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        bBClientes3.setIcon(new javax.swing.ImageIcon("/home/matheus/Downloads/mimiGlyphs/png/13.png")); // NOI18N
         bBClientes3.setText("BUSCAR CLIENTE");
         bBClientes3.setToolTipText("");
         bBClientes3.addActionListener(new java.awt.event.ActionListener() {
@@ -283,7 +287,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        bVoltar3.setIcon(new javax.swing.ImageIcon("/home/matheus/Downloads/mimiGlyphs/png/15.png")); // NOI18N
         bVoltar3.setText("<html><body>VOLTAR</body></html>");
         bVoltar3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -461,7 +464,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_bLogoutActionPerformed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
-        // TODO add your handling code here:
+        bEntrarActionPerformed(evt);
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void bSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSairActionPerformed
@@ -504,6 +507,7 @@ public class Login extends javax.swing.JFrame {
             if (cont == 0) {
                 lbLoginIncorreto.setVisible(true);
             } else if (cont == 1) {
+                lbLoginIncorreto.setVisible(false);
                 lbSenhaIncorreta.setVisible(true);
             }
 
@@ -514,8 +518,12 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_bEntrarActionPerformed
 
     private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
-        // TODO add your handling code here:
+    txtSenha.requestFocus();        // TODO add your handling code here:
     }//GEN-LAST:event_txtLoginActionPerformed
+
+    private void bFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -594,6 +602,7 @@ public class Login extends javax.swing.JFrame {
     private void fechar() {
         if (javax.swing.JOptionPane.showConfirmDialog(null, "Deseja sair do programa?", "ATENÇÃO ", javax.swing.JOptionPane.YES_NO_OPTION) == 0) {
             this.dispose();
+         
         }
     }
 
