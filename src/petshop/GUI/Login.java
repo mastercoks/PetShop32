@@ -55,7 +55,7 @@ public class Login extends javax.swing.JFrame {
         bAnimais = new javax.swing.JButton();
         bFuncionario = new javax.swing.JButton();
         bLogout = new javax.swing.JButton();
-        txtAdmin = new javax.swing.JLabel();
+        lbAdmin = new javax.swing.JLabel();
         pClientes = new javax.swing.JPanel();
         bNClientes3 = new javax.swing.JButton();
         bBClientes3 = new javax.swing.JButton();
@@ -92,7 +92,7 @@ public class Login extends javax.swing.JFrame {
 
         lbSenha.setText("Senha:");
 
-        bEntrar.setIcon(new javax.swing.ImageIcon("/home/matheus/Downloads/mimiGlyphs/png/54.png")); // NOI18N
+        bEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/54.png"))); // NOI18N
         bEntrar.setText("Entrar");
         bEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +100,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        bSair.setIcon(new javax.swing.ImageIcon("/home/matheus/Downloads/mimiGlyphs/png/52.png")); // NOI18N
+        bSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/52.png"))); // NOI18N
         bSair.setText("Sair");
         bSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,7 +181,7 @@ public class Login extends javax.swing.JFrame {
 
         pMenuPrincipal.setVisible(false);
 
-        bClientes.setIcon(new javax.swing.ImageIcon("/home/matheus/Downloads/mimiGlyphs/png/13.png")); // NOI18N
+        bClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/13.png"))); // NOI18N
         bClientes.setText("<html><body>CLIENTES</body></html>");
         bClientes.setToolTipText("");
         bClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -198,7 +198,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        bAnimais.setIcon(new javax.swing.ImageIcon("/home/matheus/Downloads/mimiGlyphs/png/77.png")); // NOI18N
+        bAnimais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/77.png"))); // NOI18N
         bAnimais.setText("<html><body>ANIMAIS</body></html>");
         bAnimais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,10 +206,10 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        bFuncionario.setIcon(new javax.swing.ImageIcon("/home/matheus/Downloads/mimiGlyphs/png/14.png")); // NOI18N
+        bFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/14.png"))); // NOI18N
         bFuncionario.setText("<html><body>FUNCIONÁRIOS</body></html>");
 
-        bLogout.setIcon(new javax.swing.ImageIcon("/home/matheus/Downloads/mimiGlyphs/png/52.png")); // NOI18N
+        bLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/52.png"))); // NOI18N
         bLogout.setText("<html><body>LOGOUT</body></html>");
         bLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,9 +217,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        txtAdmin.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        txtAdmin.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        txtAdmin.setText("ADMIN");
+        lbAdmin.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        lbAdmin.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lbAdmin.setText("ADMIN");
 
         javax.swing.GroupLayout pMenuPrincipalLayout = new javax.swing.GroupLayout(pMenuPrincipal);
         pMenuPrincipal.setLayout(pMenuPrincipalLayout);
@@ -227,7 +227,7 @@ public class Login extends javax.swing.JFrame {
             pMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pMenuPrincipalLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtAdmin)
+                .addComponent(lbAdmin)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(pMenuPrincipalLayout.createSequentialGroup()
                 .addContainerGap(94, Short.MAX_VALUE)
@@ -248,7 +248,7 @@ public class Login extends javax.swing.JFrame {
             pMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pMenuPrincipalLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtAdmin)
+                .addComponent(lbAdmin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bAnimais, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -265,7 +265,7 @@ public class Login extends javax.swing.JFrame {
         pClientes.setVisible(false);
         pClientes.setPreferredSize(new java.awt.Dimension(700, 350));
 
-        bNClientes3.setIcon(new javax.swing.ImageIcon("/home/matheus/Downloads/mimiGlyphs/png/13.png")); // NOI18N
+        bNClientes3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/13.png"))); // NOI18N
         bNClientes3.setText("<html><body>NOVO CLIENTE</body></html>");
         bNClientes3.setToolTipText("");
         bNClientes3.addActionListener(new java.awt.event.ActionListener() {
@@ -300,19 +300,17 @@ public class Login extends javax.swing.JFrame {
         pClientesLayout.setHorizontalGroup(
             pClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pClientesLayout.createSequentialGroup()
-                .addContainerGap(108, Short.MAX_VALUE)
-                .addComponent(bNClientes3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(bBClientes3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(108, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pClientesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtAdmin1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pClientesLayout.createSequentialGroup()
-                .addContainerGap(556, Short.MAX_VALUE)
-                .addComponent(bVoltar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE)
+                .addGroup(pClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pClientesLayout.createSequentialGroup()
+                        .addComponent(bNClientes3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)
+                        .addComponent(bBClientes3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bVoltar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pClientesLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(txtAdmin1)))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
         pClientesLayout.setVerticalGroup(
             pClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,7 +321,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(pClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bNClientes3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bBClientes3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(bVoltar3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
@@ -458,6 +456,8 @@ public class Login extends javax.swing.JFrame {
         mClientes.setEnabled(false);
         mAtendimento.setEnabled(false);
         mCadastro.setEnabled(false);
+        lbAdmin.setText("ADMIN");
+        bFuncionario.setEnabled(true);
     }//GEN-LAST:event_bLogoutActionPerformed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
@@ -484,8 +484,12 @@ public class Login extends javax.swing.JFrame {
 
                 while (rs.next()) {
                     if (rs.getString("login").equals(txtLogin.getText())) {
+                        if(rs.getInt("nivel")==1){
+                            lbAdmin.setText("FUNCIONARIO");
+                            bFuncionario.setEnabled(false);
+                        }
                         lbLoginIncorreto.setVisible(false);
-                        cont ++;
+                        cont++;
                         pLogin.setVisible(false);
                         pMenuPrincipal.setVisible(true);
                         mAnimais.setEnabled(true);
@@ -562,6 +566,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton bVoltar3;
     private javax.swing.JMenuBar bmBarraMenu;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JLabel lbAdmin;
     private javax.swing.JLabel lbLogin;
     private javax.swing.JLabel lbLoginIncorreto;
     private javax.swing.JLabel lbSenha;
@@ -581,7 +586,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel pClientes;
     private javax.swing.JPanel pLogin;
     private javax.swing.JPanel pMenuPrincipal;
-    private javax.swing.JLabel txtAdmin;
     private javax.swing.JLabel txtAdmin1;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JPasswordField txtSenha;

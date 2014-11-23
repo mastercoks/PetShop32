@@ -211,6 +211,7 @@ public class TelaLogin extends javax.swing.JFrame {
             if (cont == 0) {
                 lbLoginIncorreto.setVisible(true);
             } else if (cont == 1) {
+                lbLoginIncorreto.setVisible(false);
                 lbSenhaIncorreta.setVisible(true);
             }
 

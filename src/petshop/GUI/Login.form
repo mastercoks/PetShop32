@@ -249,7 +249,7 @@
         <Component class="javax.swing.JButton" name="bEntrar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/matheus/Downloads/mimiGlyphs/png/54.png"/>
+              <Image iconType="3" name="/petshop/GUI/54.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Entrar"/>
           </Properties>
@@ -260,7 +260,7 @@
         <Component class="javax.swing.JButton" name="bSair">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/matheus/Downloads/mimiGlyphs/png/52.png"/>
+              <Image iconType="3" name="/petshop/GUI/52.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
@@ -309,7 +309,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="txtAdmin" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbAdmin" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
@@ -336,7 +336,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="txtAdmin" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbAdmin" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="bAnimais" alignment="3" min="-2" pref="90" max="-2" attributes="0"/>
@@ -358,7 +358,7 @@
         <Component class="javax.swing.JButton" name="bClientes">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/matheus/Downloads/mimiGlyphs/png/13.png"/>
+              <Image iconType="3" name="/petshop/GUI/13.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;body&gt;CLIENTES&lt;/body&gt;&lt;/html&gt;"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -381,7 +381,7 @@
         <Component class="javax.swing.JButton" name="bAnimais">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/matheus/Downloads/mimiGlyphs/png/77.png"/>
+              <Image iconType="3" name="/petshop/GUI/77.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;body&gt;ANIMAIS&lt;/body&gt;&lt;/html&gt;"/>
           </Properties>
@@ -392,7 +392,7 @@
         <Component class="javax.swing.JButton" name="bFuncionario">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/matheus/Downloads/mimiGlyphs/png/14.png"/>
+              <Image iconType="3" name="/petshop/GUI/14.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;body&gt;FUNCION&#xc1;RIOS&lt;/body&gt;&lt;/html&gt;"/>
           </Properties>
@@ -400,7 +400,7 @@
         <Component class="javax.swing.JButton" name="bLogout">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/matheus/Downloads/mimiGlyphs/png/52.png"/>
+              <Image iconType="3" name="/petshop/GUI/52.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;body&gt;LOGOUT&lt;/body&gt;&lt;/html&gt;"/>
           </Properties>
@@ -408,7 +408,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bLogoutActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtAdmin">
+        <Component class="javax.swing.JLabel" name="lbAdmin">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="36" style="1"/>
@@ -434,21 +434,20 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace pref="108" max="32767" attributes="0"/>
-                  <Component id="bNClientes3" min="-2" pref="190" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="bBClientes3" min="-2" pref="190" max="-2" attributes="0"/>
-                  <EmptySpace pref="108" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="txtAdmin1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="556" max="32767" attributes="0"/>
-                  <Component id="bVoltar3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="120" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="bNClientes3" min="-2" pref="190" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="bBClientes3" min="-2" pref="190" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="bVoltar3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <Component id="txtAdmin1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="120" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -462,7 +461,7 @@
                       <Component id="bNClientes3" alignment="3" min="-2" pref="90" max="-2" attributes="0"/>
                       <Component id="bBClientes3" alignment="3" min="-2" pref="90" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="72" max="32767" attributes="0"/>
+                  <EmptySpace pref="71" max="32767" attributes="0"/>
                   <Component id="bVoltar3" min="-2" pref="26" max="-2" attributes="0"/>
                   <EmptySpace pref="14" max="32767" attributes="0"/>
               </Group>
@@ -473,7 +472,7 @@
         <Component class="javax.swing.JButton" name="bNClientes3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/matheus/Downloads/mimiGlyphs/png/13.png"/>
+              <Image iconType="3" name="/petshop/GUI/13.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;body&gt;NOVO CLIENTE&lt;/body&gt;&lt;/html&gt;"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
