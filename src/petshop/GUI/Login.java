@@ -26,13 +26,14 @@ public class Login extends javax.swing.JFrame {
         initComponents();
     }
 
-    public void capslock(final javax.swing.JTextField txt){
-    txt.addFocusListener(new java.awt.event.FocusAdapter() {
-    public void focusLost(java.awt.event.FocusEvent evt) {
-        txt.setText(txt.getText().toUpperCase());
+    public void capslock(final javax.swing.JTextField txt) {
+        txt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt.setText(txt.getText().toUpperCase());
+            }
+        });
     }
-});}
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -475,30 +476,17 @@ public class Login extends javax.swing.JFrame {
 
         bgSexo.add(rbMacho);
         rbMacho.setText("Macho");
-        rbMacho.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbMachoActionPerformed(evt);
-            }
-        });
+        rbMacho.setActionCommand("Macho");
 
         bgSexo.add(rbFemea);
         rbFemea.setText("Fêmea");
-        rbFemea.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbFemeaActionPerformed(evt);
-            }
-        });
+        rbFemea.setActionCommand("Femea");
 
         capslock(txtNome);
 
         cbEspecie.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "CACHORRO", "GATO", "CAVALO", "PASSARO", "VEADO(KURAS)", "POKÉMON(PEDRO)" }));
 
-        cbDono.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "JOÃO", "MARIA", "LEK" }));
-        cbDono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbDonoActionPerformed(evt);
-            }
-        });
+        cbDono.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-" }));
 
         lbNome.setText("NOME:");
 
@@ -582,6 +570,19 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(bSalvarCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
+
+        Statement query = ConexaoPostgreSQL.openConnectionPostgreSQL();
+        try{
+            ResultSet rs = query.executeQuery("SELECT nome FROM \"Clientes\"");
+
+            while(rs.next()){
+                cbDono.addItem(rs.getString("nome"));
+            }
+
+        }catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            lbLoginIncorreto.setVisible(true);
+        }
 
         pAddCliente.setPreferredSize(new java.awt.Dimension(700, 350));
         pAddCliente.setVisible(false);
@@ -724,7 +725,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(pAddClienteLayout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(pAddClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbFaltaEnd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbFaltaNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -780,17 +781,19 @@ public class Login extends javax.swing.JFrame {
                                         .addComponent(txtDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pAddClienteLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
-                                        .addGroup(pAddClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(bLimpar1, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                                            .addComponent(bVoltar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(bSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(pAddClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lbFaltaMensagem)
+                                            .addGroup(pAddClienteLayout.createSequentialGroup()
+                                                .addGroup(pAddClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(bLimpar1, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                                                    .addComponent(bVoltar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGap(18, 18, 18)
+                                                .addComponent(bSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                             .addGroup(pAddClienteLayout.createSequentialGroup()
                                 .addComponent(lbTelefone1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtTelefone1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lbFaltaMensagem, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap(57, Short.MAX_VALUE))
+                                .addComponent(txtTelefone1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(52, Short.MAX_VALUE))
                     .addGroup(pAddClienteLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(193, 193, 193))))
@@ -846,10 +849,12 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(bLimpar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bVoltar1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbFaltaMensagem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGroup(pAddClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pAddClienteLayout.createSequentialGroup()
+                        .addComponent(lbFaltaMensagem)
+                        .addContainerGap())))
         );
 
         lbFaltaNome.setVisible(false);
@@ -1038,16 +1043,16 @@ public class Login extends javax.swing.JFrame {
         try {
 
             ResultSet rs = query.executeQuery("SELECT id, login, senha, nivel FROM \"Admin\""
-                + "WHERE login = '" + txtLogin.getText() + "' ");
+                    + "WHERE login = '" + txtLogin.getText() + "' ");
 
             while (rs.next()) {
-                cont ++;
+                cont++;
                 rs = query.executeQuery("SELECT id, login, senha, nivel FROM \"Admin\""
-                    + "WHERE senha = '" + txtSenha.getText() + "' ");
+                        + "WHERE senha = '" + txtSenha.getText() + "' ");
 
                 while (rs.next()) {
                     if (rs.getString("login").equals(txtLogin.getText())) {
-                        if(rs.getInt("nivel")==1){
+                        if (rs.getInt("nivel") == 1) {
                             lbAdmin.setText("FUNCIONARIO");
                             bFuncionario.setEnabled(false);
                         }
@@ -1078,7 +1083,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_bEntrarActionPerformed
 
     private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
-    txtSenha.requestFocus();        // TODO add your handling code here:
+        txtSenha.requestFocus();        // TODO add your handling code here:
     }//GEN-LAST:event_txtLoginActionPerformed
 
     private void bFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFuncionarioActionPerformed
@@ -1112,63 +1117,57 @@ public class Login extends javax.swing.JFrame {
         bgSexo.clearSelection();
     }//GEN-LAST:event_bLimparActionPerformed
 
-    private void rbMachoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMachoActionPerformed
-
-    }//GEN-LAST:event_rbMachoActionPerformed
-
-    private void rbFemeaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbFemeaActionPerformed
-
-    }//GEN-LAST:event_rbFemeaActionPerformed
-
-    private void cbDonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDonoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbDonoActionPerformed
-
     private void bVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltar1ActionPerformed
         pAddCliente.setVisible(false);
         pClientes.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_bVoltar1ActionPerformed
 
     private void bSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalvarActionPerformed
-        
-        //teste campo vazio
-        cp.textfield(txtNome1,lbFaltaNome);
-        cp.textfield(txtEndereço,lbFaltaEnd);
-        cp.textfield(txtBairro,lbFaltaBairro);
+
+        //asteriscos campo vazio
+        cp.textfield(txtNome1, lbFaltaNome);
+        cp.textfield(txtEndereço, lbFaltaEnd);
+        cp.textfield(txtBairro, lbFaltaBairro);
         cp.textfield(txtComplemento, lbFaltaComp);
-        cp.formattedtextfield(txtCpf,lbFaltaCpf);
+        cp.formattedtextfield(txtCpf, lbFaltaCpf);
         cp.formattedtextfield(txtDataNasc, lbFaltaData);
         cp.formattedtextfield(txtTelefone1, lbFaltaTel);
-        cp.combobox(cbSexo,lbFaltaSexo);
-        
-        //adicionar ao table
-        Statement query = ConexaoPostgreSQL.openConnectionPostgreSQL();
-        System.out.print(txtNome1);
-        System.out.print(cbSexo.getSelectedItem());
-        
-        try{
-        query.executeUpdate("INSERT INTO \"Clientes\"(\n" +
-"            nome, endereco, bairro, complemento, sexo, cpf, datanasc, telefone1, \n" +
-"            telefone2)\n" +
-"    VALUES ('"+txtNome1.getText()+"','"+ txtEndereço.getText() +"','"+ txtBairro.getText()
-                + "','"+txtComplemento.getText() +"','"+ cbSexo.getSelectedItem() +"','"+txtCpf.getText() 
-                +"', '"+txtDataNasc.getText()+"', '"+ txtTelefone1.getText()+"','"+txtTelefone2.getText() +"');");
-        
-        JOptionPane.showMessageDialog(null, "Salvo com sucesso!", null, JOptionPane.PLAIN_MESSAGE,null);
-//      
-        
-        }catch(Exception e) {
-            System.out.println(e);
-            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco de dados ", "ERRO", JOptionPane.ERROR_MESSAGE, null);
+        cp.combobox(cbSexo, lbFaltaSexo);
 
+        Statement query = ConexaoPostgreSQL.openConnectionPostgreSQL();
+
+        //se todos os campos estiverem preenchidos ele add ao banco de dados
+        if ((cp.textfield(txtNome1, lbFaltaNome) == false) && (cp.textfield(txtEndereço, lbFaltaEnd) == false)
+                && (cp.textfield(txtBairro, lbFaltaBairro) == false) && (cp.textfield(txtComplemento, lbFaltaComp) == false)
+                && (cp.formattedtextfield(txtCpf, lbFaltaCpf) == false) && (cp.formattedtextfield(txtDataNasc, lbFaltaData) == false)
+                && (cp.formattedtextfield(txtTelefone1, lbFaltaTel) == false) && (cp.combobox(cbSexo, lbFaltaSexo) == false)) {
+
+            //add
+            try {
+                query.executeUpdate("INSERT INTO \"Clientes\"(\n"
+                        + "            nome, endereco, bairro, complemento, sexo, cpf, datanasc, telefone1, \n"
+                        + "            telefone2)\n"
+                        + "    VALUES ('" + txtNome1.getText() + "','" + txtEndereço.getText() + "','" + txtBairro.getText()
+                        + "','" + txtComplemento.getText() + "','" + cbSexo.getSelectedItem() + "','" + txtCpf.getText()
+                        + "', '" + txtDataNasc.getText() + "', '" + txtTelefone1.getText() + "','" + txtTelefone2.getText() + "');");
+
+                JOptionPane.showMessageDialog(null, "Salvo com sucesso!", null, JOptionPane.PLAIN_MESSAGE, null);
+                bLimpar1ActionPerformed(evt);//limparcampos
+
+            } catch (Exception e) {
+                System.out.println(e);
+                JOptionPane.showMessageDialog(null, "Erro na conexão com o banco de dados ", "ERRO", JOptionPane.ERROR_MESSAGE, null);
+            }
+
+            lbFaltaMensagem.setVisible(false);
+        } else {
+            lbFaltaMensagem.setVisible(true);
         }
-        
-        
-        
+
     }//GEN-LAST:event_bSalvarActionPerformed
 
     private void bLimpar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimpar1ActionPerformed
-        txtNome.setText("");
+        txtNome1.setText("");
         txtEndereço.setText("");
         txtComplemento.setText("");
         txtBairro.setText("");
@@ -1177,6 +1176,7 @@ public class Login extends javax.swing.JFrame {
         txtTelefone1.setText("");
         txtTelefone2.setText("");
         cbSexo.setSelectedItem(0);
+       
     }//GEN-LAST:event_bLimpar1ActionPerformed
 
     private void cbSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSexoActionPerformed
@@ -1184,9 +1184,26 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_cbSexoActionPerformed
 
     private void bSalvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalvarCadastroActionPerformed
-        // TODO add your handling code here:
+       Statement query = ConexaoPostgreSQL.openConnectionPostgreSQL();
+       
+            //add
+            try {
+                query.executeUpdate("INSERT INTO \"Animal\"(\n"
+                        + "            nome, sexo, especie, raça, dono)\n"
+                        + "    VALUES ('" + txtNome.getText() + "','"+ bgSexo.getSelection().getActionCommand() +"','" + cbEspecie.getSelectedItem()
+                        + "','" + txtRaca.getText() + "','" + cbDono.getSelectedItem() + "');");
+
+                JOptionPane.showMessageDialog(null, "Salvo com sucesso!", null, JOptionPane.PLAIN_MESSAGE, null);
+                bLimpar1ActionPerformed(evt);//limparcampos
+
+            } catch (Exception e) {
+                System.out.println(e);
+                JOptionPane.showMessageDialog(null, "Erro na conexão com o banco de dados ", "ERRO", JOptionPane.ERROR_MESSAGE, null);
+            }
+ 
     }//GEN-LAST:event_bSalvarCadastroActionPerformed
-        Campovazio cp = new Campovazio();
+    Campovazio cp = new Campovazio();
+
     /**
      * @param args the command line arguments
      */
@@ -1320,7 +1337,7 @@ public class Login extends javax.swing.JFrame {
     private void fechar() {
         if (javax.swing.JOptionPane.showConfirmDialog(null, "Deseja sair do programa?", "ATENÇÃO ", javax.swing.JOptionPane.YES_NO_OPTION) == 0) {
             this.dispose();
-         
+
         }
     }
 

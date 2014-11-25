@@ -10,17 +10,21 @@ import petshop.GUI.TelaAddCliente;
  *
  * @author matheus
  */
+
 public class Campovazio {
 
     //metodo para controlar os labels lbFalta
-    public void textfield(javax.swing.JTextField txt, javax.swing.JLabel label) {
+    public boolean textfield(javax.swing.JTextField txt, javax.swing.JLabel label) {
         if (txt.getText().length() <= 0) {
             label.setVisible(true);
+            return true;
         } else {
+            label.setVisible(false);
+            return false;
         }
     }
 
-    public void formattedtextfield(javax.swing.JFormattedTextField txt, javax.swing.JLabel label) {
+    public boolean formattedtextfield(javax.swing.JFormattedTextField txt, javax.swing.JLabel label) {
 //        int numero = Integer.parseInt(txt.getText());
         String string = new String(txt.getText());
         string = string.replace('-', ' ');
@@ -32,20 +36,23 @@ public class Campovazio {
 
         if (string.substring(1, 10).trim().equals("")) {
             label.setVisible(true);
+            return true;
         } else {
             label.setVisible(false);
+            return false;
         }
     }
 
-    public void combobox(javax.swing.JComboBox txt, javax.swing.JLabel label) {
+    public boolean combobox(javax.swing.JComboBox txt, javax.swing.JLabel label) {
         int item = new Integer(txt.getSelectedIndex());
 //        String string;
 //        string = Integer.toString(txt.getSelectedIndex());
         if (item == 0) {
             label.setVisible(true);
+            return true;
         } else {
             label.setVisible(false);
+            return false;
         }
     }
-    
 }
