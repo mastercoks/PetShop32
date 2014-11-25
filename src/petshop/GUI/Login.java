@@ -11,10 +11,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import br.edu.uesb.petshop.Funcionario;
 
 /**
  *
@@ -38,6 +34,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bgSexo = new javax.swing.ButtonGroup();
         pLogin = new javax.swing.JPanel();
         lbTitulo = new javax.swing.JLabel();
         txtLogin = new javax.swing.JTextField();
@@ -56,11 +53,32 @@ public class Login extends javax.swing.JFrame {
         bFuncionario = new javax.swing.JButton();
         bLogout = new javax.swing.JButton();
         lbAdmin = new javax.swing.JLabel();
+        pAnimal = new javax.swing.JPanel();
+        bNClientes4 = new javax.swing.JButton();
+        bBClientes4 = new javax.swing.JButton();
+        bVoltar4 = new javax.swing.JButton();
+        txtAdmin2 = new javax.swing.JLabel();
         pClientes = new javax.swing.JPanel();
         bNClientes3 = new javax.swing.JButton();
         bBClientes3 = new javax.swing.JButton();
         bVoltar3 = new javax.swing.JButton();
         txtAdmin1 = new javax.swing.JLabel();
+        pCadastroAnimal = new javax.swing.JPanel();
+        bVoltar = new javax.swing.JButton();
+        lbTitulo1 = new javax.swing.JLabel();
+        bLimpar = new javax.swing.JButton();
+        bSalvarCadastro = new javax.swing.JButton();
+        rbMacho = new javax.swing.JRadioButton();
+        rbFemea = new javax.swing.JRadioButton();
+        txtNome = new javax.swing.JTextField();
+        cbEspecie = new javax.swing.JComboBox();
+        cbDono = new javax.swing.JComboBox();
+        lbNome = new javax.swing.JLabel();
+        lSexo = new javax.swing.JLabel();
+        lbEspecie = new javax.swing.JLabel();
+        lbRaca = new javax.swing.JLabel();
+        lbDono = new javax.swing.JLabel();
+        txtRaca = new javax.swing.JTextField();
         bmBarraMenu = new javax.swing.JMenuBar();
         mCadastro = new javax.swing.JMenu();
         miAnimal = new javax.swing.JMenuItem();
@@ -127,7 +145,7 @@ public class Login extends javax.swing.JFrame {
         pLoginLayout.setHorizontalGroup(
             pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pLoginLayout.createSequentialGroup()
-                .addContainerGap(236, Short.MAX_VALUE)
+                .addContainerGap(245, Short.MAX_VALUE)
                 .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nada, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pLoginLayout.createSequentialGroup()
@@ -153,14 +171,14 @@ public class Login extends javax.swing.JFrame {
                         .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbLoginIncorreto)
                             .addComponent(lbSenhaIncorreta))))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         pLoginLayout.setVerticalGroup(
             pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pLoginLayout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+                .addContainerGap(55, Short.MAX_VALUE)
                 .addComponent(lbTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(nada, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -172,11 +190,11 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(lbSenhaIncorreta, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbSenha))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bEntrar)
                     .addComponent(bSair))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         pMenuPrincipal.setVisible(false);
@@ -235,17 +253,17 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(lbAdmin)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(pMenuPrincipalLayout.createSequentialGroup()
-                .addContainerGap(94, Short.MAX_VALUE)
+                .addContainerGap(103, Short.MAX_VALUE)
                 .addGroup(pMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(bFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addGroup(pMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bServicos, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bAnimais, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMenuPrincipalLayout.createSequentialGroup()
-                .addContainerGap(552, Short.MAX_VALUE)
+                .addContainerGap(593, Short.MAX_VALUE)
                 .addComponent(bLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -267,6 +285,70 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        pAnimal.setVisible(false);
+        pAnimal.setPreferredSize(new java.awt.Dimension(700, 350));
+
+        bNClientes4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/77.png"))); // NOI18N
+        bNClientes4.setText("<html><body>NOVO ANIMAL</body></html>");
+        bNClientes4.setToolTipText("");
+        bNClientes4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bNClientes4ActionPerformed(evt);
+            }
+        });
+
+        bBClientes4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/77.png"))); // NOI18N
+        bBClientes4.setText("BUSCAR ANIMAL");
+        bBClientes4.setToolTipText("");
+        bBClientes4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBClientes4ActionPerformed(evt);
+            }
+        });
+
+        bVoltar4.setText("<html><body>VOLTAR</body></html>");
+        bVoltar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVoltar4ActionPerformed(evt);
+            }
+        });
+
+        txtAdmin2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        txtAdmin2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        txtAdmin2.setText("ANIMAL");
+
+        javax.swing.GroupLayout pAnimalLayout = new javax.swing.GroupLayout(pAnimal);
+        pAnimal.setLayout(pAnimalLayout);
+        pAnimalLayout.setHorizontalGroup(
+            pAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pAnimalLayout.createSequentialGroup()
+                .addContainerGap(120, Short.MAX_VALUE)
+                .addGroup(pAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pAnimalLayout.createSequentialGroup()
+                        .addComponent(bNClientes4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)
+                        .addComponent(bBClientes4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bVoltar4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(120, Short.MAX_VALUE))
+            .addGroup(pAnimalLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtAdmin2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pAnimalLayout.setVerticalGroup(
+            pAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pAnimalLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(txtAdmin2)
+                .addGap(51, 51, 51)
+                .addGroup(pAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bNClientes4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bBClientes4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(bVoltar4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
         pClientes.setVisible(false);
         pClientes.setPreferredSize(new java.awt.Dimension(700, 350));
 
@@ -279,6 +361,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        bBClientes3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/13.png"))); // NOI18N
         bBClientes3.setText("BUSCAR CLIENTE");
         bBClientes3.setToolTipText("");
         bBClientes3.addActionListener(new java.awt.event.ActionListener() {
@@ -309,24 +392,151 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(bNClientes3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(80, 80, 80)
                         .addComponent(bBClientes3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(bVoltar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pClientesLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(txtAdmin1)))
+                    .addComponent(bVoltar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(120, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pClientesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtAdmin1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pClientesLayout.setVerticalGroup(
             pClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pClientesLayout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
                 .addComponent(txtAdmin1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addGap(54, 54, 54)
                 .addGroup(pClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bNClientes3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bBClientes3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(bVoltar3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        bVoltar.setText("<html><body>VOLTAR</body></html>");
+        bVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVoltarActionPerformed(evt);
+            }
+        });
+
+        lbTitulo1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        lbTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lbTitulo1.setText("Animal");
+
+        bLimpar.setText("LIMPAR");
+        bLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bLimparActionPerformed(evt);
+            }
+        });
+
+        bSalvarCadastro.setText("<html><body>SALVAR CADASTRO</body></html>");
+
+        bgSexo.add(rbMacho);
+        rbMacho.setText("Macho");
+        rbMacho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbMachoActionPerformed(evt);
+            }
+        });
+
+        bgSexo.add(rbFemea);
+        rbFemea.setText("Fêmea");
+        rbFemea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbFemeaActionPerformed(evt);
+            }
+        });
+
+        cbEspecie.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "CACHORRO", "GATO", "CAVALO", "PASSARO", "VEADO(KURAS)", "POKÉMON(PEDRO)" }));
+
+        cbDono.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "JOÃO", "MARIA", "LEK" }));
+        cbDono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbDonoActionPerformed(evt);
+            }
+        });
+
+        lbNome.setText("NOME:");
+
+        lSexo.setText("SEXO:");
+
+        lbEspecie.setText("ESPECIE:");
+
+        lbRaca.setText("RAÇA:");
+
+        lbDono.setText("DONO:");
+
+        javax.swing.GroupLayout pCadastroAnimalLayout = new javax.swing.GroupLayout(pCadastroAnimal);
+        pCadastroAnimal.setLayout(pCadastroAnimalLayout);
+        pCadastroAnimalLayout.setHorizontalGroup(
+            pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pCadastroAnimalLayout.createSequentialGroup()
+                .addContainerGap(136, Short.MAX_VALUE)
+                .addGroup(pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbNome)
+                    .addComponent(lSexo)
+                    .addComponent(lbEspecie)
+                    .addComponent(lbRaca)
+                    .addComponent(lbDono))
+                .addGap(18, 18, 18)
+                .addGroup(pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbEspecie, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pCadastroAnimalLayout.createSequentialGroup()
+                        .addComponent(rbMacho)
+                        .addGap(41, 41, 41)
+                        .addComponent(rbFemea)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pCadastroAnimalLayout.createSequentialGroup()
+                        .addGroup(pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(bLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(bSalvarCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE))
+                    .addComponent(txtNome)
+                    .addComponent(cbDono, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtRaca))
+                .addContainerGap(137, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pCadastroAnimalLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbTitulo1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pCadastroAnimalLayout.setVerticalGroup(
+            pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pCadastroAnimalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbTitulo1)
+                .addGap(38, 38, 38)
+                .addGroup(pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbNome))
+                .addGap(18, 18, 18)
+                .addGroup(pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbMacho)
+                    .addComponent(rbFemea)
+                    .addComponent(lSexo))
+                .addGap(18, 18, 18)
+                .addGroup(pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbEspecie))
+                .addGap(18, 18, 18)
+                .addGroup(pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbRaca)
+                    .addComponent(txtRaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbDono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbDono))
+                .addGap(16, 16, 16)
+                .addGroup(pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pCadastroAnimalLayout.createSequentialGroup()
+                        .addComponent(bLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bSalvarCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         mCadastro.setText("Cadastro");
@@ -382,11 +592,13 @@ public class Login extends javax.swing.JFrame {
 
         setJMenuBar(bmBarraMenu);
 
+        pCadastroAnimal.setVisible(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -395,12 +607,22 @@ public class Login extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE)
+                    .addComponent(pClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
+                    .addContainerGap(12, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, 701, Short.MAX_VALUE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pCadastroAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
+            .addComponent(pLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -408,9 +630,19 @@ public class Login extends javax.swing.JFrame {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap(13, Short.MAX_VALUE)
-                    .addComponent(pClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
-                    .addContainerGap(15, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pCadastroAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
@@ -434,7 +666,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_bServicosActionPerformed
 
     private void bAnimaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnimaisActionPerformed
-        // TODO add your handling code here:
+        pAnimal.setVisible(true);
+        pMenuPrincipal.setVisible(false);
     }//GEN-LAST:event_bAnimaisActionPerformed
 
     private void bNClientes3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNClientes3ActionPerformed
@@ -525,6 +758,45 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bFuncionarioActionPerformed
 
+    private void bNClientes4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNClientes4ActionPerformed
+        pCadastroAnimal.setVisible(true);
+        pAnimal.setVisible(false);
+    }//GEN-LAST:event_bNClientes4ActionPerformed
+
+    private void bBClientes4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBClientes4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bBClientes4ActionPerformed
+
+    private void bVoltar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltar4ActionPerformed
+        pMenuPrincipal.setVisible(true);
+        pAnimal.setVisible(false);
+    }//GEN-LAST:event_bVoltar4ActionPerformed
+
+    private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
+        pCadastroAnimal.setVisible(false);
+        pAnimal.setVisible(true);
+    }//GEN-LAST:event_bVoltarActionPerformed
+
+    private void bLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimparActionPerformed
+        txtNome.setText("");
+        txtRaca.setText("");
+        cbEspecie.setSelectedItem("-");
+        cbDono.setSelectedItem("-");
+        bgSexo.clearSelection();
+    }//GEN-LAST:event_bLimparActionPerformed
+
+    private void rbMachoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMachoActionPerformed
+
+    }//GEN-LAST:event_rbMachoActionPerformed
+
+    private void rbFemeaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbFemeaActionPerformed
+
+    }//GEN-LAST:event_rbFemeaActionPerformed
+
+    private void cbDonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbDonoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -554,6 +826,7 @@ public class Login extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Login().setVisible(true);
             }
@@ -564,22 +837,37 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAnimais;
     private javax.swing.JButton bBClientes3;
+    private javax.swing.JButton bBClientes4;
     private javax.swing.JButton bClientes;
     private javax.swing.JButton bEntrar;
     private javax.swing.JButton bFuncionario;
+    private javax.swing.JButton bLimpar;
     private javax.swing.JButton bLogout;
     private javax.swing.JButton bNClientes3;
+    private javax.swing.JButton bNClientes4;
     private javax.swing.JButton bSair;
+    private javax.swing.JButton bSalvarCadastro;
     private javax.swing.JButton bServicos;
+    private javax.swing.JButton bVoltar;
     private javax.swing.JButton bVoltar3;
+    private javax.swing.JButton bVoltar4;
+    private javax.swing.ButtonGroup bgSexo;
     private javax.swing.JMenuBar bmBarraMenu;
+    private javax.swing.JComboBox cbDono;
+    private javax.swing.JComboBox cbEspecie;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JLabel lSexo;
     private javax.swing.JLabel lbAdmin;
+    private javax.swing.JLabel lbDono;
+    private javax.swing.JLabel lbEspecie;
     private javax.swing.JLabel lbLogin;
     private javax.swing.JLabel lbLoginIncorreto;
+    private javax.swing.JLabel lbNome;
+    private javax.swing.JLabel lbRaca;
     private javax.swing.JLabel lbSenha;
     private javax.swing.JLabel lbSenhaIncorreta;
     private javax.swing.JLabel lbTitulo;
+    private javax.swing.JLabel lbTitulo1;
     private javax.swing.JMenu mAnimais;
     private javax.swing.JMenu mAtendimento;
     private javax.swing.JMenu mCadastro;
@@ -591,11 +879,18 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JMenuItem miContultar;
     private javax.swing.JMenuItem miNovoAtendimento;
     private javax.swing.JLabel nada;
+    private javax.swing.JPanel pAnimal;
+    private javax.swing.JPanel pCadastroAnimal;
     private javax.swing.JPanel pClientes;
     private javax.swing.JPanel pLogin;
     private javax.swing.JPanel pMenuPrincipal;
+    private javax.swing.JRadioButton rbFemea;
+    private javax.swing.JRadioButton rbMacho;
     private javax.swing.JLabel txtAdmin1;
+    private javax.swing.JLabel txtAdmin2;
     private javax.swing.JTextField txtLogin;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtRaca;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 
