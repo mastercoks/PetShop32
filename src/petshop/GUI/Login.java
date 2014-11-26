@@ -11,10 +11,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import br.edu.uesb.petshop.Funcionario;
 
 /**
  *
@@ -38,6 +34,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bgSexo = new javax.swing.ButtonGroup();
         pLogin = new javax.swing.JPanel();
         lbTitulo = new javax.swing.JLabel();
         txtLogin = new javax.swing.JTextField();
@@ -50,17 +47,38 @@ public class Login extends javax.swing.JFrame {
         lbLoginIncorreto = new javax.swing.JLabel();
         nada = new javax.swing.JLabel();
         pMenuPrincipal = new javax.swing.JPanel();
-        bClientes = new javax.swing.JButton();
-        bServicos = new javax.swing.JButton();
-        bAnimais = new javax.swing.JButton();
-        bFuncionario = new javax.swing.JButton();
-        bLogout = new javax.swing.JButton();
         lbAdmin = new javax.swing.JLabel();
-        pClientes = new javax.swing.JPanel();
-        bNClientes3 = new javax.swing.JButton();
-        bBClientes3 = new javax.swing.JButton();
-        bVoltar3 = new javax.swing.JButton();
-        txtAdmin1 = new javax.swing.JLabel();
+        bAnimais = new javax.swing.JButton();
+        bClientes = new javax.swing.JButton();
+        bFuncionario = new javax.swing.JButton();
+        bServicos = new javax.swing.JButton();
+        bLogout = new javax.swing.JButton();
+        pAnimal = new javax.swing.JPanel();
+        lbTituloMAnimal = new javax.swing.JLabel();
+        bVoltar1 = new javax.swing.JButton();
+        bBAnimal = new javax.swing.JButton();
+        bNAnimal = new javax.swing.JButton();
+        pCadastroAnimal = new javax.swing.JPanel();
+        bVoltar = new javax.swing.JButton();
+        lbTitulo1 = new javax.swing.JLabel();
+        bLimpar = new javax.swing.JButton();
+        bSalvarCadastro = new javax.swing.JButton();
+        rbMacho = new javax.swing.JRadioButton();
+        rbFemea = new javax.swing.JRadioButton();
+        txtNome = new javax.swing.JTextField();
+        cbEspecie = new javax.swing.JComboBox();
+        cbDono = new javax.swing.JComboBox();
+        lbNome = new javax.swing.JLabel();
+        lSexo = new javax.swing.JLabel();
+        lbEspecie = new javax.swing.JLabel();
+        lbRaca = new javax.swing.JLabel();
+        lbDono = new javax.swing.JLabel();
+        txtRaca = new javax.swing.JTextField();
+        pCliente = new javax.swing.JPanel();
+        lbTituloMCliente = new javax.swing.JLabel();
+        bVoltar2 = new javax.swing.JButton();
+        bBCliente = new javax.swing.JButton();
+        bNCliente = new javax.swing.JButton();
         bmBarraMenu = new javax.swing.JMenuBar();
         mCadastro = new javax.swing.JMenu();
         miAnimal = new javax.swing.JMenuItem();
@@ -75,7 +93,11 @@ public class Login extends javax.swing.JFrame {
         miContultar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PetShop");
+        setBounds(new java.awt.Rectangle(0, 0, 200, 300));
+        setMinimumSize(new java.awt.Dimension(741, 421));
 
+        pLogin.setEnabled(false);
         pLogin.setPreferredSize(new java.awt.Dimension(700, 350));
 
         lbTitulo.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -92,7 +114,7 @@ public class Login extends javax.swing.JFrame {
 
         lbSenha.setText("Senha:");
 
-        bEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/54.png"))); // NOI18N
+        bEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/uesb/petshop/icons/54.png"))); // NOI18N
         bEntrar.setText("Entrar");
         bEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +122,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        bSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/52.png"))); // NOI18N
+        bSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/uesb/petshop/icons/52.png"))); // NOI18N
         bSair.setText("Sair");
         bSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +149,7 @@ public class Login extends javax.swing.JFrame {
         pLoginLayout.setHorizontalGroup(
             pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pLoginLayout.createSequentialGroup()
-                .addContainerGap(236, Short.MAX_VALUE)
+                .addContainerGap(274, Short.MAX_VALUE)
                 .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nada, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pLoginLayout.createSequentialGroup()
@@ -153,14 +175,14 @@ public class Login extends javax.swing.JFrame {
                         .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbLoginIncorreto)
                             .addComponent(lbSenhaIncorreta))))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         pLoginLayout.setVerticalGroup(
             pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pLoginLayout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(lbTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
                 .addComponent(nada, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -172,161 +194,354 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(lbSenhaIncorreta, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbSenha))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGap(95, 95, 95)
                 .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bEntrar)
                     .addComponent(bSair))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         pMenuPrincipal.setVisible(false);
 
-        bClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/13.png"))); // NOI18N
-        bClientes.setText("<html><body>CLIENTES</body></html>");
-        bClientes.setToolTipText("");
-        bClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bClientesActionPerformed(evt);
-            }
-        });
+        lbAdmin.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        lbAdmin.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lbAdmin.setText("ADMIN");
 
-        bServicos.setText("<html><body>SERVIÇOS</body></html>");
-        bServicos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bServicosActionPerformed(evt);
-            }
-        });
-
-        bAnimais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/77.png"))); // NOI18N
-        bAnimais.setText("<html><body>ANIMAIS</body></html>");
+        bAnimais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/uesb/petshop/icons/77.png"))); // NOI18N
+        bAnimais.setText("ANIMAIS");
+        bAnimais.setMaximumSize(new java.awt.Dimension(122, 26));
+        bAnimais.setMinimumSize(new java.awt.Dimension(122, 26));
+        bAnimais.setPreferredSize(new java.awt.Dimension(122, 26));
         bAnimais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bAnimaisActionPerformed(evt);
             }
         });
 
-        bFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/14.png"))); // NOI18N
-        bFuncionario.setText("<html><body>FUNCIONÁRIOS</body></html>");
-        bFuncionario.setEnabled(false);
-        bFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        bClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/uesb/petshop/icons/14.png"))); // NOI18N
+        bClientes.setToolTipText("");
+        bClientes.setLabel("CLIENTES");
+        bClientes.setMaximumSize(new java.awt.Dimension(122, 26));
+        bClientes.setMinimumSize(new java.awt.Dimension(122, 26));
+        bClientes.setPreferredSize(new java.awt.Dimension(122, 26));
+        bClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bFuncionarioActionPerformed(evt);
+                bClientesActionPerformed(evt);
             }
         });
 
-        bLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/52.png"))); // NOI18N
-        bLogout.setText("<html><body>LOGOUT</body></html>");
+        bFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/uesb/petshop/icons/14.png"))); // NOI18N
+        bFuncionario.setText("FUNCIONÁRIOS");
+        bFuncionario.setMaximumSize(new java.awt.Dimension(122, 26));
+        bFuncionario.setMinimumSize(new java.awt.Dimension(122, 26));
+        bFuncionario.setPreferredSize(new java.awt.Dimension(122, 26));
+
+        bServicos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/uesb/petshop/icons/9.png"))); // NOI18N
+        bServicos.setText("SERVIÇOS");
+
+        bLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/uesb/petshop/icons/52.png"))); // NOI18N
+        bLogout.setText("LOGOUT");
         bLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bLogoutActionPerformed(evt);
             }
         });
 
-        lbAdmin.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        lbAdmin.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lbAdmin.setText("ADMIN");
-
         javax.swing.GroupLayout pMenuPrincipalLayout = new javax.swing.GroupLayout(pMenuPrincipal);
         pMenuPrincipal.setLayout(pMenuPrincipalLayout);
         pMenuPrincipalLayout.setHorizontalGroup(
             pMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pMenuPrincipalLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbAdmin)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(pMenuPrincipalLayout.createSequentialGroup()
-                .addContainerGap(94, Short.MAX_VALUE)
-                .addGroup(pMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(bFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
+                .addContainerGap(156, Short.MAX_VALUE)
                 .addGroup(pMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bServicos, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bAnimais, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(95, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMenuPrincipalLayout.createSequentialGroup()
-                .addContainerGap(552, Short.MAX_VALUE)
-                .addComponent(bLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pMenuPrincipalLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lbAdmin)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pMenuPrincipalLayout.createSequentialGroup()
+                        .addGroup(pMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                            .addComponent(bFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bAnimais, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                            .addComponent(bServicos, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)))
+                    .addGroup(pMenuPrincipalLayout.createSequentialGroup()
+                        .addComponent(bLogout)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
         pMenuPrincipalLayout.setVerticalGroup(
             pMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pMenuPrincipalLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(lbAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bAnimais, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(pMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bServicos, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(bLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addGroup(pMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bAnimais, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(pMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                    .addComponent(bServicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(bLogout)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pClientes.setVisible(false);
-        pClientes.setPreferredSize(new java.awt.Dimension(700, 350));
+        pAnimal.setVisible(false);
+        pAnimal.setPreferredSize(new java.awt.Dimension(700, 350));
 
-        bNClientes3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petshop/GUI/13.png"))); // NOI18N
-        bNClientes3.setText("<html><body>NOVO CLIENTE</body></html>");
-        bNClientes3.setToolTipText("");
-        bNClientes3.addActionListener(new java.awt.event.ActionListener() {
+        lbTituloMAnimal.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        lbTituloMAnimal.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lbTituloMAnimal.setText("ANIMAL");
+
+        bVoltar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/uesb/petshop/icons/15.png"))); // NOI18N
+        bVoltar1.setText("VOLTAR");
+        bVoltar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bNClientes3ActionPerformed(evt);
+                bVoltar1ActionPerformed(evt);
             }
         });
 
-        bBClientes3.setText("BUSCAR CLIENTE");
-        bBClientes3.setToolTipText("");
-        bBClientes3.addActionListener(new java.awt.event.ActionListener() {
+        bBAnimal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/uesb/petshop/icons/7.png"))); // NOI18N
+        bBAnimal.setText("BUSCAR ANIMAL");
+
+        bNAnimal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/uesb/petshop/icons/36.png"))); // NOI18N
+        bNAnimal.setText("NOVO ANIMAL");
+        bNAnimal.setMaximumSize(new java.awt.Dimension(122, 26));
+        bNAnimal.setMinimumSize(new java.awt.Dimension(122, 26));
+        bNAnimal.setPreferredSize(new java.awt.Dimension(122, 26));
+        bNAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bBClientes3ActionPerformed(evt);
+                bNAnimalActionPerformed(evt);
             }
         });
 
-        bVoltar3.setText("<html><body>VOLTAR</body></html>");
-        bVoltar3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bVoltar3ActionPerformed(evt);
-            }
-        });
-
-        txtAdmin1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        txtAdmin1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        txtAdmin1.setText("CLIENTES");
-
-        javax.swing.GroupLayout pClientesLayout = new javax.swing.GroupLayout(pClientes);
-        pClientes.setLayout(pClientesLayout);
-        pClientesLayout.setHorizontalGroup(
-            pClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pClientesLayout.createSequentialGroup()
-                .addContainerGap(120, Short.MAX_VALUE)
-                .addGroup(pClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pClientesLayout.createSequentialGroup()
-                        .addComponent(bNClientes3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80)
-                        .addComponent(bBClientes3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(bVoltar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pClientesLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(txtAdmin1)))
-                .addContainerGap(120, Short.MAX_VALUE))
+        javax.swing.GroupLayout pAnimalLayout = new javax.swing.GroupLayout(pAnimal);
+        pAnimal.setLayout(pAnimalLayout);
+        pAnimalLayout.setHorizontalGroup(
+            pAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pAnimalLayout.createSequentialGroup()
+                .addContainerGap(106, Short.MAX_VALUE)
+                .addGroup(pAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pAnimalLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lbTituloMAnimal)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pAnimalLayout.createSequentialGroup()
+                        .addComponent(bNAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bBAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE))
+                    .addGroup(pAnimalLayout.createSequentialGroup()
+                        .addComponent(bVoltar1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
-        pClientesLayout.setVerticalGroup(
-            pClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pClientesLayout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
-                .addComponent(txtAdmin1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addGroup(pClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bNClientes3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bBClientes3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(bVoltar3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+        pAnimalLayout.setVerticalGroup(
+            pAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pAnimalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbTituloMAnimal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addGroup(pAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bNAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(bBAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addComponent(bVoltar1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        bVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/uesb/petshop/icons/15.png"))); // NOI18N
+        bVoltar.setText("<html><body>VOLTAR</body></html>");
+        bVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVoltarActionPerformed(evt);
+            }
+        });
+
+        lbTitulo1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        lbTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lbTitulo1.setText("Animal");
+
+        bLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/uesb/petshop/icons/51.png"))); // NOI18N
+        bLimpar.setText("LIMPAR");
+        bLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bLimparActionPerformed(evt);
+            }
+        });
+
+        bSalvarCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/uesb/petshop/icons/54.png"))); // NOI18N
+        bSalvarCadastro.setText("<html><body>SALVAR CADASTRO</body></html>");
+
+        bgSexo.add(rbMacho);
+        rbMacho.setText("Macho");
+        rbMacho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbMachoActionPerformed(evt);
+            }
+        });
+
+        bgSexo.add(rbFemea);
+        rbFemea.setText("Fêmea");
+        rbFemea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbFemeaActionPerformed(evt);
+            }
+        });
+
+        cbEspecie.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "CACHORRO", "GATO", "CAVALO", "PASSARO", "VEADO(KURAS)", "POKÉMON(PEDRO)" }));
+
+        cbDono.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "JOÃO", "MARIA", "LEK" }));
+        cbDono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbDonoActionPerformed(evt);
+            }
+        });
+
+        lbNome.setText("NOME:");
+
+        lSexo.setText("SEXO:");
+
+        lbEspecie.setText("ESPECIE:");
+
+        lbRaca.setText("RAÇA:");
+
+        lbDono.setText("DONO:");
+
+        javax.swing.GroupLayout pCadastroAnimalLayout = new javax.swing.GroupLayout(pCadastroAnimal);
+        pCadastroAnimal.setLayout(pCadastroAnimalLayout);
+        pCadastroAnimalLayout.setHorizontalGroup(
+            pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pCadastroAnimalLayout.createSequentialGroup()
+                .addContainerGap(152, Short.MAX_VALUE)
+                .addGroup(pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbNome)
+                    .addComponent(lSexo)
+                    .addComponent(lbEspecie)
+                    .addComponent(lbRaca)
+                    .addComponent(lbDono))
+                .addGap(18, 18, 18)
+                .addGroup(pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbEspecie, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pCadastroAnimalLayout.createSequentialGroup()
+                        .addComponent(rbMacho)
+                        .addGap(41, 41, 41)
+                        .addComponent(rbFemea)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pCadastroAnimalLayout.createSequentialGroup()
+                        .addGroup(pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(bLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bVoltar))
+                        .addGap(18, 18, 18)
+                        .addComponent(bSalvarCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE))
+                    .addComponent(txtNome)
+                    .addComponent(cbDono, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtRaca))
+                .addContainerGap(156, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pCadastroAnimalLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbTitulo1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pCadastroAnimalLayout.setVerticalGroup(
+            pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pCadastroAnimalLayout.createSequentialGroup()
+                .addContainerGap(57, Short.MAX_VALUE)
+                .addComponent(lbTitulo1)
+                .addGap(18, 58, Short.MAX_VALUE)
+                .addGroup(pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbNome))
+                .addGap(18, 18, 18)
+                .addGroup(pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbMacho)
+                    .addComponent(rbFemea)
+                    .addComponent(lSexo))
+                .addGap(18, 18, 18)
+                .addGroup(pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbEspecie))
+                .addGap(18, 18, 18)
+                .addGroup(pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbRaca)
+                    .addComponent(txtRaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbDono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbDono))
+                .addGap(18, 58, Short.MAX_VALUE)
+                .addGroup(pCadastroAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pCadastroAnimalLayout.createSequentialGroup()
+                        .addComponent(bLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bSalvarCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(66, Short.MAX_VALUE))
+        );
+
+        pCliente.setVisible(false);
+        pCliente.setPreferredSize(new java.awt.Dimension(700, 350));
+
+        lbTituloMCliente.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        lbTituloMCliente.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lbTituloMCliente.setText("CLIENTE");
+
+        bVoltar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/uesb/petshop/icons/15.png"))); // NOI18N
+        bVoltar2.setText("VOLTAR");
+        bVoltar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVoltar2ActionPerformed(evt);
+            }
+        });
+
+        bBCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/uesb/petshop/icons/7.png"))); // NOI18N
+        bBCliente.setText("BUSCAR CLIENTE");
+
+        bNCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/uesb/petshop/icons/36.png"))); // NOI18N
+        bNCliente.setText("NOVO CLIENTE");
+        bNCliente.setMaximumSize(new java.awt.Dimension(122, 26));
+        bNCliente.setMinimumSize(new java.awt.Dimension(122, 26));
+        bNCliente.setPreferredSize(new java.awt.Dimension(122, 26));
+        bNCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bNClienteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pClienteLayout = new javax.swing.GroupLayout(pCliente);
+        pCliente.setLayout(pClienteLayout);
+        pClienteLayout.setHorizontalGroup(
+            pClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pClienteLayout.createSequentialGroup()
+                .addContainerGap(105, Short.MAX_VALUE)
+                .addGroup(pClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pClienteLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lbTituloMCliente)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pClienteLayout.createSequentialGroup()
+                        .addComponent(bNCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bBCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE))
+                    .addGroup(pClienteLayout.createSequentialGroup()
+                        .addComponent(bVoltar2)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(105, Short.MAX_VALUE))
+        );
+        pClienteLayout.setVerticalGroup(
+            pClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pClienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbTituloMCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addGroup(pClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bNCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(bBCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addComponent(bVoltar2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mCadastro.setText("Cadastro");
@@ -382,35 +597,33 @@ public class Login extends javax.swing.JFrame {
 
         setJMenuBar(bmBarraMenu);
 
+        pCadastroAnimal.setVisible(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pMenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(pMenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(pAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(pCadastroAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(pCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
+            .addComponent(pLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pMenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(pMenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap(13, Short.MAX_VALUE)
-                    .addComponent(pClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
-                    .addContainerGap(15, Short.MAX_VALUE)))
+                .addComponent(pAnimal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(pCadastroAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(pCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE))
         );
 
         pack();
@@ -423,45 +636,6 @@ public class Login extends javax.swing.JFrame {
     private void miContultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miContultarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_miContultarActionPerformed
-
-    private void bClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bClientesActionPerformed
-        pMenuPrincipal.setVisible(false);
-        pClientes.setVisible(true);
-    }//GEN-LAST:event_bClientesActionPerformed
-
-    private void bServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bServicosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bServicosActionPerformed
-
-    private void bAnimaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnimaisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bAnimaisActionPerformed
-
-    private void bNClientes3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNClientes3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bNClientes3ActionPerformed
-
-    private void bBClientes3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBClientes3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bBClientes3ActionPerformed
-
-    private void bVoltar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltar3ActionPerformed
-        pClientes.setVisible(false);
-        pMenuPrincipal.setVisible(true);
-    }//GEN-LAST:event_bVoltar3ActionPerformed
-
-    private void bLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLogoutActionPerformed
-        pMenuPrincipal.setVisible(false);
-        pLogin.setVisible(true);
-        txtLogin.setText("");
-        txtSenha.setText("");
-        mAnimais.setEnabled(false);
-        mClientes.setEnabled(false);
-        mAtendimento.setEnabled(false);
-        mCadastro.setEnabled(false);
-        lbAdmin.setText("ADMIN");
-        bFuncionario.setEnabled(true);
-    }//GEN-LAST:event_bLogoutActionPerformed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
         bEntrarActionPerformed(evt);
@@ -478,18 +652,21 @@ public class Login extends javax.swing.JFrame {
         try {
 
             ResultSet rs = query.executeQuery("SELECT id, login, senha, nivel FROM \"Admin\""
-                + "WHERE login = '" + txtLogin.getText() + "' ");
+                    + "WHERE login = '" + txtLogin.getText() + "' ");
 
             while (rs.next()) {
-                cont ++;
+                cont++;
                 rs = query.executeQuery("SELECT id, login, senha, nivel FROM \"Admin\""
-                    + "WHERE senha = '" + txtSenha.getText() + "' ");
+                        + "WHERE senha = '" + txtSenha.getText() + "' ");
 
                 while (rs.next()) {
                     if (rs.getString("login").equals(txtLogin.getText())) {
-                        if(rs.getInt("nivel")==1){
+                        if (rs.getInt("nivel") == 1) {
                             lbAdmin.setText("FUNCIONARIO");
                             bFuncionario.setEnabled(false);
+                        } else {
+                            lbAdmin.setText("ADMIN");
+                            bFuncionario.setEnabled(true);
                         }
                         lbLoginIncorreto.setVisible(false);
                         cont++;
@@ -518,12 +695,73 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_bEntrarActionPerformed
 
     private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
-    txtSenha.requestFocus();        // TODO add your handling code here:
+        txtSenha.requestFocus();        // TODO add your handling code here:
     }//GEN-LAST:event_txtLoginActionPerformed
 
-    private void bFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFuncionarioActionPerformed
+    private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
+        pCadastroAnimal.setVisible(false);
+        pAnimal.setVisible(true);
+    }//GEN-LAST:event_bVoltarActionPerformed
+
+    private void bLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimparActionPerformed
+        txtNome.setText("");
+        txtRaca.setText("");
+        cbEspecie.setSelectedItem("-");
+        cbDono.setSelectedItem("-");
+        bgSexo.clearSelection();
+    }//GEN-LAST:event_bLimparActionPerformed
+
+    private void rbMachoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMachoActionPerformed
+
+    }//GEN-LAST:event_rbMachoActionPerformed
+
+    private void rbFemeaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbFemeaActionPerformed
+
+    }//GEN-LAST:event_rbFemeaActionPerformed
+
+    private void cbDonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDonoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_bFuncionarioActionPerformed
+    }//GEN-LAST:event_cbDonoActionPerformed
+
+    private void bLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLogoutActionPerformed
+        pMenuPrincipal.setVisible(false);
+        pLogin.setVisible(true);
+        txtLogin.setText("");
+        txtSenha.setText("");
+        mAnimais.setEnabled(false);
+        mClientes.setEnabled(false);
+        mAtendimento.setEnabled(false);
+        mCadastro.setEnabled(false);
+    }//GEN-LAST:event_bLogoutActionPerformed
+
+    private void bClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bClientesActionPerformed
+        pMenuPrincipal.setVisible(false);
+        pCliente.setVisible(true);
+    }//GEN-LAST:event_bClientesActionPerformed
+
+    private void bAnimaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnimaisActionPerformed
+        pAnimal.setVisible(true);
+        pMenuPrincipal.setVisible(false);
+    }//GEN-LAST:event_bAnimaisActionPerformed
+
+    private void bVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltar1ActionPerformed
+        pMenuPrincipal.setVisible(true);
+        pAnimal.setVisible(false);
+    }//GEN-LAST:event_bVoltar1ActionPerformed
+
+    private void bNAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNAnimalActionPerformed
+        pCadastroAnimal.setVisible(true);
+        pAnimal.setVisible(false);
+    }//GEN-LAST:event_bNAnimalActionPerformed
+
+    private void bVoltar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltar2ActionPerformed
+        pCliente.setVisible(false);
+        pMenuPrincipal.setVisible(true);
+    }//GEN-LAST:event_bVoltar2ActionPerformed
+
+    private void bNClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bNClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -554,6 +792,7 @@ public class Login extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Login().setVisible(true);
             }
@@ -563,23 +802,40 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAnimais;
-    private javax.swing.JButton bBClientes3;
+    private javax.swing.JButton bBAnimal;
+    private javax.swing.JButton bBCliente;
     private javax.swing.JButton bClientes;
     private javax.swing.JButton bEntrar;
     private javax.swing.JButton bFuncionario;
+    private javax.swing.JButton bLimpar;
     private javax.swing.JButton bLogout;
-    private javax.swing.JButton bNClientes3;
+    private javax.swing.JButton bNAnimal;
+    private javax.swing.JButton bNCliente;
     private javax.swing.JButton bSair;
+    private javax.swing.JButton bSalvarCadastro;
     private javax.swing.JButton bServicos;
-    private javax.swing.JButton bVoltar3;
+    private javax.swing.JButton bVoltar;
+    private javax.swing.JButton bVoltar1;
+    private javax.swing.JButton bVoltar2;
+    private javax.swing.ButtonGroup bgSexo;
     private javax.swing.JMenuBar bmBarraMenu;
+    private javax.swing.JComboBox cbDono;
+    private javax.swing.JComboBox cbEspecie;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JLabel lSexo;
     private javax.swing.JLabel lbAdmin;
+    private javax.swing.JLabel lbDono;
+    private javax.swing.JLabel lbEspecie;
     private javax.swing.JLabel lbLogin;
     private javax.swing.JLabel lbLoginIncorreto;
+    private javax.swing.JLabel lbNome;
+    private javax.swing.JLabel lbRaca;
     private javax.swing.JLabel lbSenha;
     private javax.swing.JLabel lbSenhaIncorreta;
     private javax.swing.JLabel lbTitulo;
+    private javax.swing.JLabel lbTitulo1;
+    private javax.swing.JLabel lbTituloMAnimal;
+    private javax.swing.JLabel lbTituloMCliente;
     private javax.swing.JMenu mAnimais;
     private javax.swing.JMenu mAtendimento;
     private javax.swing.JMenu mCadastro;
@@ -591,18 +847,23 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JMenuItem miContultar;
     private javax.swing.JMenuItem miNovoAtendimento;
     private javax.swing.JLabel nada;
-    private javax.swing.JPanel pClientes;
+    private javax.swing.JPanel pAnimal;
+    private javax.swing.JPanel pCadastroAnimal;
+    private javax.swing.JPanel pCliente;
     private javax.swing.JPanel pLogin;
     private javax.swing.JPanel pMenuPrincipal;
-    private javax.swing.JLabel txtAdmin1;
+    private javax.swing.JRadioButton rbFemea;
+    private javax.swing.JRadioButton rbMacho;
     private javax.swing.JTextField txtLogin;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtRaca;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 
     private void fechar() {
         if (javax.swing.JOptionPane.showConfirmDialog(null, "Deseja sair do programa?", "ATENÇÃO ", javax.swing.JOptionPane.YES_NO_OPTION) == 0) {
             this.dispose();
-         
+
         }
     }
 
